@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearList" android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+   <LinearLayout
+       android:orientation="horizontal"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginRight="@dimen/listMargin"
+           android:text="@string/news_types"
+           android:textSize="@dimen/listTextSize"
+           android:textColor="@color/colorPrimary"/>
+       <TextView
+           android:id="@+id/item_title_text_view"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content" />
+   </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/listMargin"
+            android:text="@string/section_name"
+            android:textSize="@dimen/listTextSize"
+            android:textColor="@color/colorPrimary"/>
+
+        <TextView
+            android:id="@+id/item_auther_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/listMargin"
+            android:text="@string/publish_date"
+            android:textSize="@dimen/listTextSize"
+            android:textColor="@color/colorPrimary"/>
+         <TextView
+            android:id="@+id/item_publisher_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/listMargin"
+            android:text="@string/news_title"
+            android:textSize="@dimen/listTextSize"
+            android:textColor="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/item_description_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/listMargin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/listMargin"
+            android:text="@string/news_url"
+            android:textSize="@dimen/listTextSize"
+            android:textColor="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/item_url_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+     </LinearLayout>
+
+
+</LinearLayout>
