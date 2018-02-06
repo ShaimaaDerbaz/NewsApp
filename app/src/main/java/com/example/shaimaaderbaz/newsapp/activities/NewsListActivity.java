@@ -34,7 +34,7 @@ public class NewsListActivity extends FragmentActivity implements android.suppor
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_list);
-        URL_NEWS = "http://content.guardianapis.com/search?q=debates&api-key=test";
+        URL_NEWS = "http://content.guardianapis.com/search?q=debates&show-tags=contributor&show-references=author&api-key=test";
         Context context = getApplicationContext();
         CharSequence noInternetText = "No Internet ,Please connect";
         int duration = Toast.LENGTH_SHORT;

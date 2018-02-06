@@ -35,8 +35,15 @@ public class NewsParser {
                 String title =currentArticleNews.getString("webTitle");
                 String webUrl =currentArticleNews.getString("webUrl");
                 String author=" ";
-                if(currentArticleNews.has("authors")) {
-                    author = currentArticleNews.getString("authors");
+                if(currentArticleNews.has("references")) {
+                    JSONArray authorArr=currentArticleNews.getJSONArray("references");
+                    if(authorArr.length()>0)
+                    {
+                    JSONObject authorObject = authorArr.getJSONObject(0);
+                    author =authorObject.getString("id");
+                    author=author.substring(7);
+                    author=author.replace("-"," ");
+                    }
 
                 }
                 else
