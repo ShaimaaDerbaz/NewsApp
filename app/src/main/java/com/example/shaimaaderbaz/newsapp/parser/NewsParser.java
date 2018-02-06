@@ -35,14 +35,17 @@ public class NewsParser {
                 String title =currentArticleNews.getString("webTitle");
                 String webUrl =currentArticleNews.getString("webUrl");
                 String author=" ";
-                if(currentArticleNews.has("references")) {
-                    JSONArray authorArr=currentArticleNews.getJSONArray("references");
-                    if(authorArr.length()>0)
+                if(currentArticleNews.has("tags"))
+                {
+                    JSONArray tagsArr=currentArticleNews.getJSONArray("tags");
+                    int l=tagsArr.length();
+                    JSONObject authorObj=tagsArr.getJSONObject(0);
+                    if(authorObj.has("firsName")||authorObj.has("lastName"))
                     {
-                    JSONObject authorObject = authorArr.getJSONObject(0);
-                    author =authorObject.getString("id");
-                    author=author.substring(7);
-                    author=author.replace("-"," ");
+                        String fName = authorObj.getString("firstName");
+                        String lName = authorObj.getString("lastName");
+                        author = fName + " " + lName;
+
                     }
 
                 }
