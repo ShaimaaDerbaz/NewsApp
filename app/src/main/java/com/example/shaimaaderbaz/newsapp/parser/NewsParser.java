@@ -36,7 +36,16 @@ public class NewsParser {
                 String publicationDate = currentArticleNews.getString("webPublicationDate");
                 String title =currentArticleNews.getString("webTitle");
                 String webUrl =currentArticleNews.getString("webUrl");
-                News news = new News(type, sectionName, publicationDate, title,webUrl);
+                String author=" ";
+                if(currentArticleNews.has("authors")) {
+                    author = currentArticleNews.getString("authors");
+
+                }
+                else
+                {
+                    author = " ";
+                }
+                News news = new News(type, sectionName, publicationDate,author, title,webUrl);
                 newsList.add(news);
 
             }

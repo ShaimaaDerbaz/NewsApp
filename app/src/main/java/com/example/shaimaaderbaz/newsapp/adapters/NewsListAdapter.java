@@ -18,7 +18,6 @@ import java.util.ArrayList;
  */
 
 public class NewsListAdapter extends ArrayAdapter<News> {
-    private LayoutInflater inflater;
     private ArrayList<News> items = new ArrayList<News>();
 
     public NewsListAdapter(Activity context, ArrayList<News> items) {
@@ -43,6 +42,8 @@ public class NewsListAdapter extends ArrayAdapter<News> {
         autherItemTextView.setText(currentItem.getSectionName());
         TextView itemPublisherTextView = (TextView) listItemView.findViewById(R.id.item_publisher_text_view);
         itemPublisherTextView.setText(currentItem.getPublicationDate());
+        TextView itemAuthorTextView = (TextView) listItemView.findViewById(R.id.item_author_text_view);
+        itemAuthorTextView.setText(currentItem.getAuthor());
         TextView itemDescriptionTextView = (TextView) listItemView.findViewById(R.id.item_description_text_view);
         itemDescriptionTextView.setText(currentItem.getTitle());
         TextView itemUrlTextView = (TextView) listItemView.findViewById(R.id.item_url_text_view);

@@ -8,14 +8,16 @@ public class News {
     String type;
     String sectionName ;
     String publicationDate;
+    String author;
     String title;
     String webUrl;
     public News()
     {}
 
-    public News(String type,  String sectionName,String publicationDate,String title,  String webUrl) {
+    public News(String type,  String sectionName,String publicationDate,String author,String title,  String webUrl) {
         this.type = type;
         this.webUrl = webUrl;
+        this.author=author;
         this.title = title;
         this.publicationDate = publicationDate;
         this.sectionName = sectionName;
@@ -59,5 +61,13 @@ public class News {
 
     public void setWebUrl(String webUrl) {
         this.webUrl = webUrl;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 }

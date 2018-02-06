@@ -9,7 +9,6 @@ import android.support.v4.content.Loader;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.shaimaaderbaz.newsapp.R;
@@ -18,7 +17,6 @@ import com.example.shaimaaderbaz.newsapp.loaders.NewsAsyncLoader;
 import com.example.shaimaaderbaz.newsapp.models.News;
 import com.example.shaimaaderbaz.newsapp.utils.NetworkConnect;
 
-import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,7 +26,7 @@ import java.util.ArrayList;
 
 public class NewsListActivity extends FragmentActivity implements android.support.v4.app.LoaderManager.LoaderCallbacks<ArrayList<News>>{
 
-    public static String URL_USGS  ;
+    public static String URL_NEWS;
     ListView newsListView;
     NewsListAdapter mAdapter;
 
@@ -38,10 +36,10 @@ public class NewsListActivity extends FragmentActivity implements android.suppor
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_list);
-        URL_USGS = "http://content.guardianapis.com/search?q=debates&api-key=test";
+        URL_NEWS = "http://content.guardianapis.com/search?q=debates&api-key=test";
 
         Context context = getApplicationContext();
-        CharSequence text = "No Internet ,Please connect";
+        CharSequence noInternetText = "No Internet ,Please connect";
         int duration = Toast.LENGTH_SHORT;
         try
         {
@@ -57,19 +55,19 @@ public class NewsListActivity extends FragmentActivity implements android.suppor
             else
             {
 
-                Toast toast =Toast.makeText(context,text,duration);
+                Toast toast =Toast.makeText(context,noInternetText,duration);
                 toast.show();
             }
         }catch (InterruptedException e )
         {
 
-            Toast toast =Toast.makeText(context,text,duration);
+            Toast toast =Toast.makeText(context,noInternetText,duration);
             toast.show();
         }
         catch( IOException ee)
         {
 
-            Toast toast =Toast.makeText(context,text,duration);
+            Toast toast =Toast.makeText(context,noInternetText,duration);
 
         }
 
@@ -90,7 +88,7 @@ public class NewsListActivity extends FragmentActivity implements android.suppor
     }
     @Override
     public Loader<ArrayList<News>> onCreateLoader(int id, Bundle args) {
-        return new NewsAsyncLoader(NewsListActivity.this,URL_USGS);
+        return new NewsAsyncLoader(NewsListActivity.this, URL_NEWS);
     }
     @Override
     public void onLoadFinished(Loader<ArrayList<News>> loader, ArrayList<News> data) {
