@@ -1,10 +1,15 @@
 package com.example.shaimaaderbaz.newsapp.activities;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.Loader;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.shaimaaderbaz.newsapp.R;
@@ -12,6 +17,8 @@ import com.example.shaimaaderbaz.newsapp.adapters.NewsListAdapter;
 import com.example.shaimaaderbaz.newsapp.loaders.NewsAsyncLoader;
 import com.example.shaimaaderbaz.newsapp.models.News;
 import com.example.shaimaaderbaz.newsapp.utils.NetworkConnect;
+
+import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -65,6 +72,19 @@ public class NewsListActivity extends FragmentActivity implements android.suppor
             Toast toast =Toast.makeText(context,text,duration);
 
         }
+
+        newsListView.setTextFilterEnabled(true);
+
+        newsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                String text = mAdapter.getItem(position).getWebUrl();
+                Uri uriUrl = Uri.parse(text);
+                Intent i = new Intent(Intent.ACTION_VIEW, uriUrl);
+                startActivity(i);
+
+            }
+        });
 
 
     }
