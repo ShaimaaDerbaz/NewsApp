@@ -12,19 +12,15 @@ import java.util.ArrayList;
  */
 public class NewsAsyncLoader extends android.support.v4.content.AsyncTaskLoader< ArrayList<News> >
 {
-
     private String url;
     public NewsAsyncLoader(Activity activity,String url) {
         super(activity);
         this.url=url;
-
     }
     @Override
     public ArrayList<News> loadInBackground ()
     {
-
         ArrayList<News> result = Utils.fetchNewsData(url);
         return result;
     }
-
 }

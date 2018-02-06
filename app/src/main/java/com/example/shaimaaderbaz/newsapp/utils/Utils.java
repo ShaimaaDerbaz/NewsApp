@@ -32,8 +32,6 @@ public class Utils {
     public static ArrayList<News> fetchNewsData(String requestUrl) {
 
         URL url = Utils.createUrl(requestUrl);
-
-
         String jsonResponse = null;
         try {
             jsonResponse = Utils.makeRequests(url);
@@ -42,8 +40,6 @@ public class Utils {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
         ArrayList<News> news = NewsParser.extractFeatureFromJson(jsonResponse);
         return news;
     }

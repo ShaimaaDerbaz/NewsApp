@@ -30,14 +30,11 @@ public class NewsListActivity extends FragmentActivity implements android.suppor
     ListView newsListView;
     NewsListAdapter mAdapter;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_list);
         URL_NEWS = "http://content.guardianapis.com/search?q=debates&api-key=test";
-
         Context context = getApplicationContext();
         CharSequence noInternetText = "No Internet ,Please connect";
         int duration = Toast.LENGTH_SHORT;
@@ -49,30 +46,22 @@ public class NewsListActivity extends FragmentActivity implements android.suppor
                 newsListView = (ListView) findViewById(R.id.activity_news_list);
                 newsListView.setAdapter(mAdapter);
                 getSupportLoaderManager().initLoader(1, null, this).forceLoad();
-
-
             }
             else
             {
-
                 Toast toast =Toast.makeText(context,noInternetText,duration);
                 toast.show();
             }
         }catch (InterruptedException e )
         {
-
             Toast toast =Toast.makeText(context,noInternetText,duration);
             toast.show();
         }
         catch( IOException ee)
         {
-
             Toast toast =Toast.makeText(context,noInternetText,duration);
-
         }
-
         newsListView.setTextFilterEnabled(true);
-
         newsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
@@ -83,8 +72,6 @@ public class NewsListActivity extends FragmentActivity implements android.suppor
 
             }
         });
-
-
     }
     @Override
     public Loader<ArrayList<News>> onCreateLoader(int id, Bundle args) {
@@ -98,6 +85,4 @@ public class NewsListActivity extends FragmentActivity implements android.suppor
     public void onLoaderReset(Loader<ArrayList<News>> loader) {
         mAdapter.setNews(new ArrayList<News>());
     }
-
-
 }

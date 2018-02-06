@@ -23,9 +23,7 @@ public class NewsListAdapter extends ArrayAdapter<News> {
     public NewsListAdapter(Activity context, ArrayList<News> items) {
         super(context, 0, items);
         this.items=items;
-
     }
-
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -33,7 +31,6 @@ public class NewsListAdapter extends ArrayAdapter<News> {
         if (listItemView == null) {
             listItemView = LayoutInflater.from(
                     getContext()).inflate(R.layout.list_item, null, false);
-
         }
         News currentItem = getItem(position);
         TextView titleItemTextView=(TextView)listItemView.findViewById(R.id.item_title_text_view);
@@ -48,7 +45,6 @@ public class NewsListAdapter extends ArrayAdapter<News> {
         itemDescriptionTextView.setText(currentItem.getTitle());
         TextView itemUrlTextView = (TextView) listItemView.findViewById(R.id.item_url_text_view);
         itemUrlTextView.setText(currentItem.getWebUrl());
-
         return listItemView;
     }
 
@@ -56,5 +52,4 @@ public class NewsListAdapter extends ArrayAdapter<News> {
         items.addAll(data);
         notifyDataSetChanged();
     }
-
 }

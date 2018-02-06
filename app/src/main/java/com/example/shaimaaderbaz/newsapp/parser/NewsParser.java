@@ -23,13 +23,11 @@ public class NewsParser {
         }
 
         ArrayList<News> newsList = new ArrayList<>();
-
         try {
             JSONObject baseJsonResponse = new JSONObject(newsJSON);
             JSONObject response =baseJsonResponse.getJSONObject("response");
             JSONArray newsArray = response.getJSONArray("results");
             for (int i = 0; i < newsArray.length(); i++) {
-
                 JSONObject currentArticleNews = newsArray.getJSONObject(i);
                 String type = currentArticleNews.getString("type");
                 String sectionName = currentArticleNews.getString("sectionName");
